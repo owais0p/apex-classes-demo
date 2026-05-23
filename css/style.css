@@ -254,6 +254,21 @@ img {
   color: var(--accent-blue);
 }
 
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: white;
+  margin-left: 6px;
+  transition: transform 0.2s;
+}
+.social-icon:hover {
+  transform: scale(1.15);
+}
+
 /* Navbar */
 .main-header {
   background-color: var(--bg-white);
