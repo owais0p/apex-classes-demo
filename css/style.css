@@ -773,14 +773,22 @@ img {
   box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
 }
 
-.topper-card img {
+.topper-avatar {
   width: 110px;
   height: 110px;
   border-radius: 50%;
-  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto 15px auto;
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1px;
   border: 4px solid var(--bg-white);
   box-shadow: var(--shadow-md);
+  flex-shrink: 0;
 }
 
 .topper-name {
@@ -1542,9 +1550,10 @@ img {
   }
 
   /* Topper cards */
-  .topper-card img {
-    width: 90px;
-    height: 90px;
+  .topper-avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 24px;
   }
 
   /* Scholarship */
