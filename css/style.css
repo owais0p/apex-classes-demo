@@ -40,6 +40,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -48,6 +49,7 @@ body {
   background-color: var(--bg-light);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -403,6 +405,29 @@ img {
 .mobile-toggle.active span:nth-child(3) {
   transform: rotate(-45deg);
   top: 10px;
+}
+
+/* ==========================================
+   PAGE HERO BANNER (inner pages)
+   ========================================== */
+.page-hero-section {
+  background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-blue) 100%);
+  color: var(--bg-white);
+  text-align: center;
+  padding: 70px 0;
+}
+
+.page-hero-section h1 {
+  color: var(--bg-white);
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.page-hero-section p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 /* ==========================================
@@ -1156,20 +1181,31 @@ img {
 /* ==========================================
    RESPONSIVENESS (MEDIA QUERIES)
    ========================================== */
+
+/* ---- Tablet: max 1024px ---- */
 @media (max-width: 1024px) {
+  .section-padding {
+    padding: 60px 0;
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
   .hero-section {
-    padding: 60px 0 100px 0;
+    padding: 70px 0 110px 0;
   }
   .hero-content h1 {
     font-size: 40px;
   }
+  .hero-features {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 20px;
     padding: 30px;
   }
   .stat-item {
@@ -1178,6 +1214,7 @@ img {
   .stat-item:nth-child(odd) {
     border-right: 1px solid var(--bg-gray);
   }
+
   .grid-3 {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1187,20 +1224,57 @@ img {
   .footer-top {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+
+  .page-hero-section {
+    padding: 50px 0;
+  }
+
+  .page-hero-section h1 {
+    font-size: 34px;
+  }
 }
 
+/* ---- Mobile: max 768px ---- */
 @media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .section-padding {
+    padding: 50px 0;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .section-title-wrapper {
+    margin-bottom: 35px;
+  }
+
+  .section-desc {
+    font-size: 15px;
+  }
+
+  /* Hide top bar on mobile */
   .top-bar {
     display: none;
   }
-  .section-title {
-    font-size: 30px;
-  }
-  
+
   /* Mobile Nav */
   .mobile-toggle {
     display: block;
   }
+
   .nav-menu {
     position: fixed;
     top: 80px;
@@ -1210,67 +1284,308 @@ img {
     background-color: var(--bg-white);
     flex-direction: column;
     align-items: flex-start;
-    padding: 40px 24px;
-    gap: 20px;
-    transition: all var(--transition-normal);
+    padding: 30px 20px;
+    gap: 10px;
+    overflow-y: auto;
+    transition: left var(--transition-normal);
     box-shadow: var(--shadow-lg);
     z-index: 999;
   }
+
   .nav-menu.active {
     left: 0;
   }
+
   .nav-link {
-    font-size: 18px;
+    font-size: 17px;
     width: 100%;
-  }
-  .header-cta {
-    display: none; /* Can show it inside menu if needed */
-  }
-  
-  .grid-2, .grid-3, .grid-4, .toppers-grid, .footer-top {
-    grid-template-columns: 1fr;
-  }
-  
-  .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-  .stat-item:nth-child(odd) {
-    border-right: none;
-  }
-  .stat-item {
+    padding: 12px 0;
     border-bottom: 1px solid var(--bg-gray);
-    padding-bottom: 20px;
   }
-  .stat-item:last-child {
+
+  .header-cta {
+    display: none;
+  }
+
+  /* Hero section */
+  .hero-section {
+    padding: 50px 0 80px 0;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .hero-desc {
+    font-size: 16px;
+    margin-bottom: 25px;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-btns .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .hero-features {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-inquiry-card {
+    padding: 22px 18px;
+  }
+
+  /* Stats bar */
+  .stats-bar {
+    margin-top: -40px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    padding: 0;
+  }
+
+  .stat-item {
+    border-right: none;
+    border-bottom: 1px solid var(--bg-gray);
+    padding: 22px 15px;
+  }
+
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--bg-gray);
+  }
+
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
     border-bottom: none;
-    padding-bottom: 0;
   }
-  
+
+  .stat-num {
+    font-size: 30px;
+  }
+
+  /* Grids → single column */
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .toppers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer */
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .footer-bottom-links a {
+    margin: 0 8px;
+  }
+
+  /* Scholarship card */
   .scholarship-info-card {
     flex-direction: column;
     text-align: center;
-    padding: 30px 20px;
+    padding: 28px 20px;
+    gap: 20px;
   }
+
   .scholarship-info-card h3 {
-    font-size: 22px;
+    font-size: 20px;
   }
-  
+
+  /* Contact */
   .contact-layout {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 30px;
   }
-  
-  .footer-bottom {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
+
+  .contact-form-panel {
+    padding: 25px 20px;
   }
-  .footer-bottom-links a {
-    margin: 0 10px;
+
+  /* Fees table */
+  .fees-table th,
+  .fees-table td {
+    padding: 12px 14px;
+    font-size: 13px;
   }
+
+  /* Fees table */
+  /* (already above) */
+
+  /* Page hero (inner pages) */
+  .page-hero-section {
+    padding: 40px 0;
+  }
+
+  .page-hero-section h1 {
+    font-size: 28px;
+  }
+
+  .page-hero-section p {
+    font-size: 14.5px;
+  }
+
+  /* WhatsApp */
   .whatsapp-widget {
-    bottom: 24px;
-    right: 24px;
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .whatsapp-icon {
+    width: 52px;
+    height: 52px;
   }
 }
+
+/* ---- Small phones: max 480px ---- */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 14px;
+  }
+
+  .section-padding {
+    padding: 40px 0;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  /* Header */
+  .header-container {
+    height: 65px;
+  }
+
+  .logo-text h2 {
+    font-size: 18px;
+  }
+
+  .logo-text span {
+    font-size: 10px;
+  }
+
+  .logo-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+  }
+
+  .nav-menu {
+    top: 65px;
+    height: calc(100vh - 65px);
+  }
+
+  /* Hero */
+  .hero-section {
+    padding: 40px 0 70px 0;
+  }
+
+  .hero-content h1 {
+    font-size: 26px;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+  }
+
+  .hero-badge {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+
+  .hero-inquiry-card {
+    padding: 18px 14px;
+  }
+
+  .hero-inquiry-card h3 {
+    font-size: 18px;
+  }
+
+  /* Stats */
+  .stats-bar {
+    margin-top: -30px;
+  }
+
+  .stat-num {
+    font-size: 26px;
+  }
+
+  .stat-name {
+    font-size: 11px;
+  }
+
+  /* Buttons */
+  .btn {
+    padding: 11px 20px;
+    font-size: 14px;
+  }
+
+  /* Topper cards */
+  .topper-card img {
+    width: 90px;
+    height: 90px;
+  }
+
+  /* Scholarship */
+  .scholarship-info-card {
+    padding: 22px 16px;
+  }
+
+  .scholarship-info-card h3 {
+    font-size: 18px;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 50px 0 20px 0;
+  }
+
+  .footer-col h3 {
+    font-size: 16px;
+  }
+
+  .footer-bottom-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .footer-bottom-links a {
+    margin: 0 4px;
+    font-size: 12px;
+  }
+
+  /* WhatsApp */
+  .whatsapp-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .whatsapp-tooltip {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
